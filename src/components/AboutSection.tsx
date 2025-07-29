@@ -14,18 +14,66 @@ import {
 import { Button } from '@/components/ui/button';
 import AnimatedCard3D from './AnimatedCard3D';
 import ResumeDialog from './ResumeDialog';
+import pythonIcon from '@/assets/python-icon.png';
+import reactIcon from '@/assets/react-icon.png';
+import sqlIcon from '@/assets/sql-icon.png';
+import webTechIcon from '@/assets/web-tech-icon.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  { name: 'HTML/CSS/JS', icon: Code, color: 'text-primary' },
-  { name: 'React', icon: Code, color: 'text-primary' },
-  { name: 'Python', icon: Code, color: 'text-secondary' },
-  { name: 'SQL', icon: Database, color: 'text-accent' },
-  { name: 'WordPress', icon: Globe, color: 'text-primary' },
-  { name: 'AI Chatbots', icon: Bot, color: 'text-secondary' },
-  { name: 'Hosting', icon: Server, color: 'text-accent' },
-  { name: 'SEO/Marketing', icon: TrendingUp, color: 'text-primary' }
+  { 
+    name: 'HTML/CSS/JS', 
+    icon: Code, 
+    color: 'text-orange-400',
+    gradient: 'from-orange-400/20 to-yellow-400/20',
+    customImage: webTechIcon
+  },
+  { 
+    name: 'React', 
+    icon: Smartphone, 
+    color: 'text-blue-400',
+    gradient: 'from-blue-400/20 to-cyan-400/20',
+    customImage: reactIcon
+  },
+  { 
+    name: 'Python', 
+    icon: Bot, 
+    color: 'text-green-400',
+    gradient: 'from-green-400/20 to-blue-500/20',
+    customImage: pythonIcon
+  },
+  { 
+    name: 'SQL', 
+    icon: Database, 
+    color: 'text-purple-400',
+    gradient: 'from-purple-400/20 to-pink-400/20',
+    customImage: sqlIcon
+  },
+  { 
+    name: 'WordPress', 
+    icon: Globe, 
+    color: 'text-blue-500',
+    gradient: 'from-blue-500/20 to-indigo-400/20'
+  },
+  { 
+    name: 'AI Chatbots', 
+    icon: Bot, 
+    color: 'text-emerald-400',
+    gradient: 'from-emerald-400/20 to-teal-400/20'
+  },
+  { 
+    name: 'Hosting', 
+    icon: Server, 
+    color: 'text-red-400',
+    gradient: 'from-red-400/20 to-orange-400/20'
+  },
+  { 
+    name: 'SEO/Marketing', 
+    icon: TrendingUp, 
+    color: 'text-pink-400',
+    gradient: 'from-pink-400/20 to-rose-400/20'
+  }
 ];
 
 const AboutSection = () => {
@@ -214,9 +262,40 @@ const AboutSection = () => {
                     <div className="absolute bottom-2 left-2 w-1 h-1 bg-secondary/50 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 p-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
-                        <Icon className={`w-full h-full ${skill.color} group-hover:drop-shadow-glow transition-all transform-gpu`} />
-                      </div>
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${skill.gradient} p-3 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 relative overflow-hidden`}>
+                      {/* Technology-specific background patterns */}
+                      {skill.name === 'Python' && (
+                        <div className="absolute inset-0 opacity-20">
+                          <div className="absolute top-1 left-1 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                          <div className="absolute bottom-1 left-1/2 w-1 h-1 bg-green-400 rounded-full"></div>
+                        </div>
+                      )}
+                      {skill.name === 'React' && (
+                        <div className="absolute inset-0 opacity-30">
+                          <div className="absolute inset-2 border border-blue-400/30 rounded-full"></div>
+                          <div className="absolute inset-3 border border-cyan-400/30 rounded-full"></div>
+                        </div>
+                      )}
+                      {skill.name === 'SQL' && (
+                        <div className="absolute inset-0 opacity-20">
+                          <div className="absolute top-2 left-2 right-2 h-0.5 bg-purple-400/50"></div>
+                          <div className="absolute bottom-2 left-2 right-2 h-0.5 bg-purple-400/50"></div>
+                          <div className="absolute top-1/2 left-2 right-2 h-0.5 bg-pink-400/50"></div>
+                        </div>
+                      )}
+                      
+                      {/* Custom images for specific technologies */}
+                      {skill.customImage ? (
+                        <img 
+                          src={skill.customImage} 
+                          alt={skill.name}
+                          className="w-full h-full object-contain group-hover:drop-shadow-glow transition-all transform-gpu relative z-10"
+                        />
+                      ) : (
+                        <Icon className={`w-full h-full ${skill.color} group-hover:drop-shadow-glow transition-all transform-gpu relative z-10`} />
+                      )}
+                    </div>
                       <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{skill.name}</p>
                       
                       {/* Skill level indicator */}
