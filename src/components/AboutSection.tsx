@@ -169,9 +169,20 @@ const AboutSection = () => {
     <section 
       id="about"
       ref={sectionRef}
-      className="min-h-screen py-20 px-4"
+      className="relative min-h-screen py-20 px-4 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Fullscreen Holoblobs Spline Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <iframe 
+          src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
+          frameBorder='0' 
+          width='100%' 
+          height='100%'
+          className="w-full h-full"
+        />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[0.5px]" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">
             About{' '}
@@ -187,22 +198,9 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-1 gap-16 items-center mb-20">
           {/* About Content */}
           <div ref={contentRef} className="space-y-6 text-center">
-            <div className="relative inline-block">
-              {/* Holoblobs background for Web & Tech Specialist text */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
-                <iframe 
-                  src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
-                  frameBorder='0' 
-                  width='100%' 
-                  height='100%'
-                  className="w-full h-full scale-125"
-                />
-                <div className="absolute inset-0 bg-background/30 backdrop-blur-[0.5px]" />
-              </div>
-              <h3 className="relative z-10 text-2xl md:text-3xl font-semibold text-foreground text-glow px-8 py-6">
-                Web & Tech Specialist
-              </h3>
-            </div>
+            <h3 className="text-2xl md:text-3xl font-semibold text-foreground text-glow">
+              Web & Tech Specialist
+            </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm a passionate web developer and tech specialist with expertise in building 
               modern, responsive websites and web applications. I specialize in AI-powered 
