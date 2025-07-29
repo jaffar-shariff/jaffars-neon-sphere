@@ -150,9 +150,22 @@ const HeroSection = () => {
             Jaffar Shariff
           </span>
           <br />
-          <span className="text-2xl md:text-4xl lg:text-5xl text-foreground/90">
-            Web & Tech Specialist
-          </span>
+          <div className="relative inline-block">
+            {/* Holoblobs background for Web & Tech Specialist text */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
+              <iframe 
+                src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
+                frameBorder='0' 
+                width='100%' 
+                height='100%'
+                className="w-full h-full scale-150"
+              />
+              <div className="absolute inset-0 bg-background/40 backdrop-blur-[0.5px]" />
+            </div>
+            <span className="relative z-10 text-2xl md:text-4xl lg:text-5xl text-foreground font-bold text-glow px-8 py-4 inline-block">
+              Web & Tech Specialist
+            </span>
+          </div>
         </h1>
 
         <p 
