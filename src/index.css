@@ -2,41 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Futuristic Portfolio Design System - Neon Blues/Violets with Glassmorphism
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark futuristic theme */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Glassmorphic cards */
+    --card: 222 47% 11% / 0.8;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 47% 11% / 0.95;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon blue primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --primary-glow: 217 91% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Violet secondary */
+    --secondary: 260 91% 60%;
+    --secondary-foreground: 222 47% 11%;
+    --secondary-glow: 260 91% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Subtle muted tones */
+    --muted: 222 47% 20%;
+    --muted-foreground: 217 20% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Neon accent */
+    --accent: 180 91% 60%;
+    --accent-foreground: 222 47% 11%;
+    --accent-glow: 180 91% 70%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Glassmorphic borders */
+    --border: 217 91% 60% / 0.2;
+    --input: 222 47% 20%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--secondary-glow)));
+    --gradient-bg: radial-gradient(ellipse at center, hsl(var(--background)) 0%, hsl(222 47% 8%) 100%);
+    
+    /* Glassmorphism */
+    --glass-bg: hsl(var(--card));
+    --glass-border: hsl(var(--border));
+    --glass-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
+    --glass-backdrop: blur(10px);
+    
+    /* Neon glow effects */
+    --glow-primary: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+    --glow-secondary: 0 0 20px hsl(var(--secondary) / 0.5), 0 0 40px hsl(var(--secondary) / 0.3);
+    --glow-accent: 0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
+    
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +130,83 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--gradient-bg);
   }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+  }
+  
+  /* Neon glow button */
+  .neon-button {
+    @apply relative px-8 py-3 rounded-full font-semibold transition-all duration-300;
+    background: var(--gradient-primary);
+    box-shadow: var(--glow-primary);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--glow-primary), 0 10px 25px hsl(var(--primary) / 0.4);
+  }
+  
+  /* Floating orb animation */
+  .floating-orb {
+    @apply absolute rounded-full pointer-events-none;
+    background: var(--gradient-glow);
+    filter: blur(40px);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Text glow effect */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+  
+  /* Profile image glow */
+  .profile-glow {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--secondary) / 0.4);
+    border: 2px solid hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--glow-primary); }
+    50% { box-shadow: var(--glow-primary), 0 0 40px hsl(var(--primary) / 0.8); }
+  }
+  
+  @keyframes fade-blur-in {
+    0% { 
+      opacity: 0; 
+      transform: translateY(50px);
+      filter: blur(10px);
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* Custom animations */
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+  .animate-fade-blur-in { animation: fade-blur-in 0.8s ease-out forwards; }
 }
