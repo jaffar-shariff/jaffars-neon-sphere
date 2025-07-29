@@ -242,3 +242,4 @@ All colors MUST be HSL.
     text-shadow: 0 0 8px hsl(var(--primary) / 0.3);
     transition: all 0.3s ease;
   }
+}
