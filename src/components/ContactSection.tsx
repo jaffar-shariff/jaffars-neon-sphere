@@ -216,7 +216,7 @@ const ContactSection = () => {
                   variant="outline"
                   size="lg"
                   className="glass-card border-primary/30 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
-                  onClick={() => window.open('https://linkedin.com/in/jaffarshariff', '_blank')}
+                  onClick={() => window.open('https://www.linkedin.com/in/jaffar0017', '_blank')}
                 >
                   <Linkedin className="w-6 h-6" />
                 </Button>
