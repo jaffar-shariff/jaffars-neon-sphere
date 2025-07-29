@@ -137,44 +137,63 @@ const AboutSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Download Resume Button */}
+          {/* Download Resume Section */}
           <div ref={imageRef} className="flex justify-center lg:justify-end">
             <ResumeDialog>
-              <AnimatedCard3D className="cursor-pointer" intensity={0.6}>
-                <div className="relative group">
-                  {/* Circular Resume Button */}
-                  <div className="w-32 h-32 rounded-full glass-card p-8 hover:scale-110 transition-all duration-300 group relative overflow-hidden flex items-center justify-center">
-                    {/* Background gradient */}
-                    <div className="absolute inset-0 bg-gradient-primary opacity-10 group-hover:opacity-30 transition-opacity rounded-full" />
-                    
-                    {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-glow-primary" />
-                    
-                    {/* Resume Icon */}
-                    <div className="relative text-center">
-                      <svg className="w-12 h-12 text-primary group-hover:text-primary-glow transition-colors duration-300 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
-                        <path d="M8 8a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
-                        <path d="M8 12a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+              <AnimatedCard3D className="cursor-pointer" intensity={0.8}>
+                <div className="glass-card p-8 hover:scale-105 transition-all duration-300 group relative overflow-hidden max-w-sm">
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-primary opacity-5 group-hover:opacity-15 transition-opacity" />
+                  
+                  {/* Resume Icon - Modern Document with Glow */}
+                  <div className="relative text-center mb-6">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-primary p-5 group-hover:scale-110 transition-transform transform-gpu shadow-glow-primary">
+                      <svg className="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
-                      <p className="text-xs font-bold text-primary group-hover:text-primary-glow transition-colors">
-                        Resume
-                      </p>
                     </div>
-
-                    {/* Animated ring on hover */}
-                    <div className="absolute inset-0 rounded-full border-2 border-primary/30 group-hover:border-primary group-hover:animate-pulse-glow transition-all duration-300" />
                     
-                    {/* Outer glow ring */}
-                    <div className="absolute -inset-2 rounded-full border border-primary/20 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500" />
-                  </div>
-
-                  {/* Tooltip */}
-                  <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="glass-card px-3 py-1 text-xs text-primary font-medium whitespace-nowrap">
-                      Click for Resume
+                    {/* Floating tech icons around resume */}
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center animate-float">
+                      <Code className="w-3 h-3 text-secondary" />
+                    </div>
+                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+                      <Database className="w-3 h-3 text-accent" />
                     </div>
                   </div>
+                  
+                  <div className="text-center space-y-4">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      Professional Resume
+                    </h3>
+                    
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Download my complete professional background with 3+ years in web hosting, AI tools, and technical support
+                    </p>
+                    
+                    {/* Stats */}
+                    <div className="grid grid-cols-2 gap-4 py-4">
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-primary">3+</div>
+                        <div className="text-xs text-muted-foreground">Years Exp</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-secondary">15+</div>
+                        <div className="text-xs text-muted-foreground">Skills</div>
+                      </div>
+                    </div>
+                    
+                    <Button className="neon-button w-full py-3 text-base font-semibold">
+                      Get Resume
+                    </Button>
+                  </div>
+
+                  {/* Animated particles */}
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-secondary/30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  
+                  {/* Hover glow effect */}
+                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-2xl -z-10" />
                 </div>
               </AnimatedCard3D>
             </ResumeDialog>
