@@ -73,8 +73,41 @@ const HeroSection = () => {
       ease: 'power1.inOut'
     });
 
+    // Neon 3D background effect on scroll
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const orbs = document.querySelectorAll('.floating-orb');
+      
+      orbs.forEach((orb, index) => {
+        const speed = (index + 1) * 0.5;
+        const rotation = scrollY * speed * 0.1;
+        const scale = 1 + (scrollY * 0.0005);
+        
+        gsap.to(orb, {
+          rotation: rotation,
+          scale: Math.min(scale, 1.5),
+          duration: 0.1,
+          ease: 'none'
+        });
+      });
+
+      // Enhance background opacity based on scroll
+      const backgroundOverlay = heroRef.current?.querySelector('.bg-background\\/80');
+      if (backgroundOverlay) {
+        const opacity = Math.min(0.8 + (scrollY * 0.0005), 0.95);
+        gsap.to(backgroundOverlay, {
+          opacity: opacity,
+          duration: 0.1,
+          ease: 'none'
+        });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
       tl.kill();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -138,16 +171,25 @@ const HeroSection = () => {
           >
             View Projects
           </Button>
+          <Button 
+            className="bg-gradient-secondary text-secondary-foreground px-8 py-4 text-lg cursor-pointer transform-gpu hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-glow-secondary"
+          >
+            Get Updates
+          </Button>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Glowing mouse scroll indicator */}
         <div 
           ref={scrollRef}
           onClick={scrollToAbout}
-          className="cursor-pointer flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          className="cursor-pointer flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
-          <p className="text-sm">Scroll to explore</p>
-          <ChevronDown className="w-6 h-6 animate-pulse" />
+          <div className="relative">
+            <div className="w-6 h-10 border-2 border-primary/50 rounded-full group-hover:border-primary transition-colors">
+              <div className="w-1 h-2 bg-primary rounded-full mx-auto mt-2 animate-bounce"></div>
+            </div>
+            <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse-glow"></div>
+          </div>
         </div>
       </div>
     </section>

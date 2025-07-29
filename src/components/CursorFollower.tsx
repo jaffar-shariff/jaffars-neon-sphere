@@ -144,33 +144,25 @@ const CursorFollower = () => {
         </div>
       ))}
 
-      {/* Main cursor - spider body */}
+      {/* Main cursor with neon glow */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-50"
+        className="fixed top-0 left-0 w-4 h-4 pointer-events-none z-50"
         style={{ transform: 'translate(-50%, -50%)' }}
       >
-        <div className="relative w-full h-full">
-          {/* Spider body */}
-          <div className="w-full h-full bg-primary rounded-full shadow-glow-primary animate-pulse-glow" />
-          
-          {/* Spider legs */}
-          <div className="absolute inset-0">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-8 h-0.5 bg-primary/60 origin-left"
-                style={{
-                  top: '50%',
-                  left: '50%',
-                  transform: `rotate(${i * 45}deg) translateX(-4px)`,
-                  animation: `float ${2 + i * 0.2}s ease-in-out infinite`,
-                  animationDelay: `${i * 0.1}s`
-                }}
-              />
-            ))}
-          </div>
-        </div>
+        <div 
+          className={`w-full h-full rounded-full transition-all duration-200 ${
+            isHovering ? 'scale-150' : 'scale-100'
+          }`}
+          style={{
+            background: isHovering 
+              ? 'radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--primary)/0.8) 50%, hsl(var(--primary)/0.3) 100%)'
+              : 'hsl(var(--primary))',
+            boxShadow: isHovering 
+              ? '0 0 20px hsl(var(--primary)/0.8), 0 0 40px hsl(var(--primary)/0.6), 0 0 60px hsl(var(--primary)/0.4)'
+              : '0 0 10px hsl(var(--primary)/0.5)',
+          }}
+        />
       </div>
 
       {/* Follower with text - spider web */}

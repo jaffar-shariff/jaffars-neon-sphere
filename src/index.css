@@ -64,6 +64,9 @@ All colors MUST be HSL.
     --glow-secondary: 0 0 20px hsl(var(--secondary) / 0.5), 0 0 40px hsl(var(--secondary) / 0.3);
     --glow-accent: 0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
     
+    /* Gradient backgrounds */
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+    
     /* Animation timing */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -209,6 +212,9 @@ All colors MUST be HSL.
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
   .animate-fade-blur-in { animation: fade-blur-in 0.8s ease-out forwards; }
+  
+  /* Additional gradient utilities */
+  .bg-gradient-secondary { background: var(--gradient-secondary); }
   
   /* 3D Transform utilities */
   .transform-gpu { transform: translateZ(0); }

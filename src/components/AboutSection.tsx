@@ -136,59 +136,9 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Download Resume Section */}
-          <div ref={imageRef} className="flex justify-center lg:justify-end">
-            <ResumeDialog>
-              <AnimatedCard3D className="cursor-pointer" intensity={0.8}>
-                <div className="glass-card p-8 hover:scale-105 transition-all duration-300 group relative overflow-hidden max-w-sm">
-                  {/* Background gradient */}
-                  <div className="absolute inset-0 bg-gradient-primary opacity-5 group-hover:opacity-15 transition-opacity" />
-                  
-                  {/* Resume Icon - Modern Document with Glow */}
-                  <div className="relative text-center mb-6">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-primary p-5 group-hover:scale-110 transition-transform transform-gpu shadow-glow-primary">
-                      <svg className="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                    </div>
-                    
-                    {/* Floating tech icons around resume */}
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center animate-float">
-                      <Code className="w-3 h-3 text-secondary" />
-                    </div>
-                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
-                      <Database className="w-3 h-3 text-accent" />
-                    </div>
-                  </div>
-                  
-                  <div className="text-center space-y-4">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      Resume
-                    </h3>
-                    
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      View or download my complete experience and skills
-                    </p>
-                    
-                    <Button className="neon-button w-full py-3 text-base font-semibold">
-                      View / Download
-                    </Button>
-                  </div>
-
-                  {/* Animated particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
-                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-secondary/30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-                  
-                  {/* Hover glow effect */}
-                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-2xl -z-10" />
-                </div>
-              </AnimatedCard3D>
-            </ResumeDialog>
-          </div>
-
+        <div className="grid lg:grid-cols-1 gap-16 items-center mb-20">
           {/* About Content */}
-          <div ref={contentRef} className="space-y-6">
+          <div ref={contentRef} className="space-y-6 text-center">
             <h3 className="text-2xl md:text-3xl font-semibold text-foreground">
               Web & Tech Specialist
             </h3>
