@@ -154,25 +154,48 @@ const AboutSection = () => {
               I bring technical expertise with a user-centered approach.
             </p>
             
-            <div className="glass-card p-6 mt-8">
-              <h4 className="text-xl font-semibold mb-4 text-primary">Key Specializations</h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• AI-powered website development and automation</li>
-                <li>• WordPress customization and optimization</li>
-                <li>• Database design and management (SQL)</li>
-                <li>• Hosting solutions and technical support</li>
-                <li>• Digital marketing and SEO strategies</li>
-              </ul>
+            <div className="glass-card p-8 mt-8 group hover:scale-105 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-primary p-3 group-hover:rotate-180 transition-transform duration-500">
+                  <Shield className="w-full h-full text-primary-foreground" />
+                </div>
+                <h4 className="text-2xl font-bold text-primary">Key Specializations</h4>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors group/item">
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover/item:scale-150 transition-transform"></div>
+                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">AI-powered website development and automation</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/5 transition-colors group/item">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover/item:scale-150 transition-transform"></div>
+                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">WordPress customization and optimization</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group/item">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 group-hover/item:scale-150 transition-transform"></div>
+                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">Database design and management (SQL)</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors group/item">
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover/item:scale-150 transition-transform"></div>
+                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">Hosting solutions and technical support</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/5 transition-colors group/item col-span-full">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover/item:scale-150 transition-transform"></div>
+                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">Digital marketing and SEO strategies</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Skills Grid */}
+        {/* Skills Grid - Enhanced Design */}
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold mb-8 text-glow">Technical Skills</h3>
+          <h3 className="text-3xl font-bold mb-4 text-glow">Technical Skills</h3>
+          <p className="text-muted-foreground mb-12 max-w-2xl mx-auto">
+            My technical expertise spans across modern web technologies and cutting-edge tools
+          </p>
           <div 
             ref={skillsRef}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto"
           >
             {skills.map((skill, index) => {
               const Icon = skill.icon;
@@ -180,15 +203,48 @@ const AboutSection = () => {
                 <AnimatedCard3D
                   key={skill.name}
                   className="cursor-pointer"
-                  intensity={0.6}
+                  intensity={0.8}
                 >
-                  <div className="glass-card p-6 hover:scale-105 transition-transform duration-300 group">
-                    <Icon className={`w-8 h-8 mx-auto mb-3 ${skill.color} group-hover:scale-110 transition-transform transform-gpu`} />
-                    <p className="text-sm font-medium text-foreground">{skill.name}</p>
+                  <div className="glass-card p-8 hover:scale-110 transition-all duration-500 group relative overflow-hidden">
+                    {/* Background glow effect */}
+                    <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    
+                    {/* Floating particles */}
+                    <div className="absolute top-2 right-2 w-1 h-1 bg-primary/50 rounded-full animate-pulse"></div>
+                    <div className="absolute bottom-2 left-2 w-1 h-1 bg-secondary/50 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    
+                    <div className="relative z-10">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 p-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
+                        <Icon className={`w-full h-full ${skill.color} group-hover:drop-shadow-glow transition-all transform-gpu`} />
+                      </div>
+                      <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{skill.name}</p>
+                      
+                      {/* Skill level indicator */}
+                      <div className="w-full h-1 bg-muted/20 rounded-full mt-3 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-primary rounded-full transition-all duration-700 group-hover:w-full"
+                          style={{ width: `${85 + (index * 2)}%` }}
+                        ></div>
+                      </div>
+                    </div>
                   </div>
                 </AnimatedCard3D>
               );
             })}
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="text-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button className="neon-button px-8 py-4 text-lg">
+              Get Updates
+            </Button>
+            <ResumeDialog>
+              <Button variant="outline" className="glass-card border-primary/30 text-foreground hover:bg-primary/10 px-8 py-4 text-lg cursor-pointer transform-gpu hover:scale-105 transition-all duration-300">
+                View Resume
+              </Button>
+            </ResumeDialog>
           </div>
         </div>
       </div>
