@@ -196,7 +196,7 @@ const ContactSection = () => {
                 </p>
                 <div className="flex items-center gap-3 text-primary">
                   <Mail className="w-5 h-5" />
-                  <span className="text-foreground">hello@jaffar.website</span>
+                  <span className="text-foreground">jaffarshariff0017@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@ const ContactSection = () => {
                   variant="outline"
                   size="lg"
                   className="glass-card border-primary/30 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
-                  onClick={() => window.open('mailto:hello@jaffar.website', '_blank')}
+                  onClick={() => window.open('mailto:jaffarshariff0017@gmail.com', '_blank')}
                 >
                   <Mail className="w-6 h-6" />
                 </Button>

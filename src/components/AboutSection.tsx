@@ -11,7 +11,7 @@ import {
   Globe,
   Shield
 } from 'lucide-react';
-import profileImg from '@/assets/profile.jpg';
+import profileImg from '/lovable-uploads/811e0d66-0217-4dfe-96af-8c91f382fb6f.png';
 
 gsap.registerPlugin(ScrollTrigger);
 

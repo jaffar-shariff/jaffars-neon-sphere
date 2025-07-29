@@ -26,10 +26,10 @@ const projects = [
     githubUrl: '#'
   },
   {
-    title: 'Hosting Issue Tracker',
-    description: 'SQL-powered dashboard for tracking and resolving hosting issues with automated notifications and reporting.',
-    tech: ['SQL', 'Dashboard', 'Analytics', 'API'],
-    icon: Database,
+    title: 'Live Chat Support System',
+    description: 'Real-time assistance platform for hosting and website troubleshooting. Provides instant technical support and issue resolution.',
+    tech: ['Live Chat', 'Support', 'Hosting', 'Troubleshooting'],
+    icon: Bot,
     gradient: 'from-accent to-accent-glow',
     demoUrl: '#',
     githubUrl: '#'

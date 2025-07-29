@@ -72,7 +72,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, label: 'GitHub', url: 'https://github.com/jaffarshariff' },
     { icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com/in/jaffarshariff' },
-    { icon: Mail, label: 'Email', url: 'mailto:hello@jaffar.website' }
+    { icon: Mail, label: 'Email', url: 'mailto:jaffarshariff0017@gmail.com' }
   ];
 
   const navLinks = [
