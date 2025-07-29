@@ -120,12 +120,16 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background image with overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      {/* Fullscreen Spline 3D Model */}
+      <div className="absolute inset-0 w-full h-full">
+        <iframe 
+          src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
+          frameBorder='0' 
+          width='100%' 
+          height='100%'
+          className="w-full h-full"
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px]" />
       </div>
 
       {/* Floating orbs */}
