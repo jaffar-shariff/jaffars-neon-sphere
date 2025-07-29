@@ -120,7 +120,7 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Fullscreen Spline 3D Model */}
+      {/* Fullscreen Spline 3D Model Background */}
       <div className="absolute inset-0 w-full h-full">
         <iframe 
           src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
@@ -129,7 +129,7 @@ const HeroSection = () => {
           height='100%'
           className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-background/20 backdrop-blur-[0.5px]" />
       </div>
 
       {/* Floating orbs */}
