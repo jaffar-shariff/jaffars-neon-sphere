@@ -66,7 +66,6 @@ const CursorFollower = () => {
       
       if (target.matches('button, a, .cursor-pointer')) {
         setIsHovering(true);
-        setCursorText('Click');
         
         gsap.to(cursor, {
           scale: 1.5,
@@ -79,7 +78,6 @@ const CursorFollower = () => {
         });
       } else if (target.matches('.glass-card')) {
         setIsHovering(true);
-        setCursorText('Explore');
         
         gsap.to(follower, {
           scale: 2,
@@ -87,7 +85,6 @@ const CursorFollower = () => {
         });
       } else if (target.matches('input, textarea')) {
         setIsHovering(true);
-        setCursorText('Type');
         
         gsap.to(follower, {
           scale: 1.8,
@@ -98,7 +95,6 @@ const CursorFollower = () => {
 
     const handleMouseLeave = () => {
       setIsHovering(false);
-      setCursorText('');
       
       gsap.to([cursor, follower], {
         scale: 1,
@@ -200,26 +196,6 @@ const CursorFollower = () => {
               <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping" />
             )}
           </div>
-          
-          {/* Enhanced popup text with 3D effect */}
-          {cursorText && (
-            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-              <div className="relative">
-                {/* 3D shadow effect */}
-                <div className="absolute inset-0 bg-background/80 rounded-xl blur-sm translate-x-1 translate-y-1"></div>
-                {/* Main popup */}
-                <div className="relative glass-card px-6 py-4 text-base font-bold text-primary animate-fade-blur-in border-2 border-primary/40 shadow-glow-primary hover:scale-105 transition-all duration-200 bg-background/90 backdrop-blur-md">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xl animate-bounce">✨</span> 
-                    <span className="text-lg tracking-wide font-extrabold">{cursorText}</span>
-                  </div>
-                  {/* Glowing dots */}
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/60 rounded-full animate-ping"></div>
-                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-secondary/60 rounded-full animate-pulse"></div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </>
