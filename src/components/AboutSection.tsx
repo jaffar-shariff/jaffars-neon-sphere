@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
@@ -11,7 +11,9 @@ import {
   Globe,
   Shield
 } from 'lucide-react';
-import profileImg from '/lovable-uploads/811e0d66-0217-4dfe-96af-8c91f382fb6f.png';
+import { removeBackground, loadImage } from '@/utils/imageProcessing';
+
+const originalProfileImg = '/lovable-uploads/811e0d66-0217-4dfe-96af-8c91f382fb6f.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +33,39 @@ const AboutSection = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const [processedImageUrl, setProcessedImageUrl] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  useEffect(() => {
+    const processProfileImage = async () => {
+      try {
+        setIsProcessing(true);
+        console.log('Starting image processing...');
+        
+        const imageElement = await loadImage(originalProfileImg);
+        const processedBlob = await removeBackground(imageElement);
+        const processedUrl = URL.createObjectURL(processedBlob);
+        
+        setProcessedImageUrl(processedUrl);
+        console.log('Image processed successfully');
+      } catch (error) {
+        console.error('Error processing image:', error);
+        // Fallback to original image if processing fails
+        setProcessedImageUrl(originalProfileImg);
+      } finally {
+        setIsProcessing(false);
+      }
+    };
+
+    processProfileImage();
+
+    // Cleanup function
+    return () => {
+      if (processedImageUrl && processedImageUrl.startsWith('blob:')) {
+        URL.revokeObjectURL(processedImageUrl);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -139,11 +174,17 @@ const AboutSection = () => {
           <div ref={imageRef} className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 blur-xl scale-110" />
-              <img
-                src={profileImg}
-                alt="Jaffar Shariff"
-                className="relative w-80 h-80 rounded-full object-cover profile-glow transition-transform duration-500 hover:scale-105 hover:rotate-3"
-              />
+              {isProcessing ? (
+                <div className="w-80 h-80 rounded-full bg-muted/20 flex items-center justify-center">
+                  <div className="text-muted-foreground">Processing...</div>
+                </div>
+              ) : (
+                <img
+                  src={processedImageUrl || originalProfileImg}
+                  alt="Jaffar Shariff"
+                  className="relative w-80 h-80 rounded-full object-cover profile-glow transition-transform duration-500 hover:scale-105 hover:rotate-3"
+                />
+              )}
               {/* Floating icons around profile */}
               <div className="absolute -top-4 -right-4 floating-orb w-8 h-8 bg-primary/30 rounded-full flex items-center justify-center">
                 <Code className="w-4 h-4 text-primary" />
