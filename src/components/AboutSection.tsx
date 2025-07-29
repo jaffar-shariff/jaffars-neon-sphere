@@ -11,10 +11,8 @@ import {
   Globe,
   Shield
 } from 'lucide-react';
-import { removeBackground, loadImage } from '@/utils/imageProcessing';
+import { Button } from '@/components/ui/button';
 import AnimatedCard3D from './AnimatedCard3D';
-
-const originalProfileImg = '/lovable-uploads/811e0d66-0217-4dfe-96af-8c91f382fb6f.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,39 +32,6 @@ const AboutSection = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
-  const [processedImageUrl, setProcessedImageUrl] = useState<string | null>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
-
-  useEffect(() => {
-    const processProfileImage = async () => {
-      try {
-        setIsProcessing(true);
-        console.log('Starting image processing...');
-        
-        const imageElement = await loadImage(originalProfileImg);
-        const processedBlob = await removeBackground(imageElement);
-        const processedUrl = URL.createObjectURL(processedBlob);
-        
-        setProcessedImageUrl(processedUrl);
-        console.log('Image processed successfully');
-      } catch (error) {
-        console.error('Error processing image:', error);
-        // Fallback to original image if processing fails
-        setProcessedImageUrl(originalProfileImg);
-      } finally {
-        setIsProcessing(false);
-      }
-    };
-
-    processProfileImage();
-
-    // Cleanup function
-    return () => {
-      if (processedImageUrl && processedImageUrl.startsWith('blob:')) {
-        URL.revokeObjectURL(processedImageUrl);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -171,29 +136,40 @@ const AboutSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Profile Image */}
+          {/* Download Resume Button */}
           <div ref={imageRef} className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 blur-xl scale-110" />
-              {isProcessing ? (
-                <div className="w-80 h-80 rounded-full bg-muted/20 flex items-center justify-center">
-                  <div className="text-muted-foreground">Processing...</div>
+            <AnimatedCard3D className="cursor-pointer" intensity={0.8}>
+              <div className="glass-card p-8 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                {/* Background gradient */}
+                <div className="absolute inset-0 bg-gradient-primary opacity-10 group-hover:opacity-20 transition-opacity" />
+                
+                {/* Resume Icon */}
+                <div className="relative text-center">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-xl bg-gradient-primary p-6 group-hover:scale-110 transition-transform transform-gpu">
+                    <svg className="w-full h-full text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
+                      <path d="M8 8a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                      <path d="M8 12a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                    </svg>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                    Download Resume
+                  </h3>
+                  
+                  <p className="text-muted-foreground mb-6 text-sm">
+                    Get my complete professional background, skills, and experience
+                  </p>
+                  
+                  <Button className="neon-button px-6 py-3 cursor-pointer">
+                    Download PDF
+                  </Button>
                 </div>
-              ) : (
-                <img
-                  src={processedImageUrl || originalProfileImg}
-                  alt="Jaffar Shariff"
-                  className="relative w-80 h-80 rounded-full object-cover profile-glow transition-transform duration-500 hover:scale-105 hover:rotate-3"
-                />
-              )}
-              {/* Floating icons around profile */}
-              <div className="absolute -top-4 -right-4 floating-orb w-8 h-8 bg-primary/30 rounded-full flex items-center justify-center">
-                <Code className="w-4 h-4 text-primary" />
+
+                {/* Hover effect orb */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500 transform-gpu" />
               </div>
-              <div className="absolute -bottom-4 -left-4 floating-orb w-8 h-8 bg-secondary/30 rounded-full flex items-center justify-center" style={{ animationDelay: '2s' }}>
-                <Bot className="w-4 h-4 text-secondary" />
-              </div>
-            </div>
+            </AnimatedCard3D>
           </div>
 
           {/* About Content */}

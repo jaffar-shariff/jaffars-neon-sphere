@@ -215,7 +215,14 @@ All colors MUST be HSL.
   .preserve-3d { transform-style: preserve-3d; }
   
   /* Enhanced cursor interactions */
-  body { cursor: none; }
-  button, a, .cursor-pointer { cursor: none; }
-  input, textarea { cursor: none; }
+  body { cursor: none !important; }
+  *, *::before, *::after { cursor: none !important; }
+  button, a, .cursor-pointer { cursor: none !important; }
+  input, textarea { cursor: none !important; }
+  
+  /* Spider cursor animations */
+  @keyframes spider-leg {
+    0%, 100% { transform: rotate(var(--rotation)) translateX(-4px) scaleX(1); }
+    50% { transform: rotate(var(--rotation)) translateX(-6px) scaleX(1.2); }
+  }
 }
