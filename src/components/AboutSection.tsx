@@ -203,32 +203,66 @@ const AboutSection = () => {
             </p>
             
             <div className="glass-card p-8 mt-8 group hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-full bg-gradient-primary p-3 group-hover:rotate-180 transition-transform duration-500">
                   <Shield className="w-full h-full text-primary-foreground" />
                 </div>
                 <h4 className="text-2xl font-bold text-primary">Key Specializations</h4>
               </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors group/item">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover/item:scale-150 transition-transform"></div>
-                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">AI-powered website development and automation</span>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative p-4 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 transition-all group/item">
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 group-hover/item:scale-125 transition-transform"></div>
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-1">AI-Powered Development</h5>
+                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Website development and automation solutions</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/5 transition-colors group/item">
-                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover/item:scale-150 transition-transform"></div>
-                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">WordPress customization and optimization</span>
+                
+                <div className="relative p-4 rounded-xl bg-gradient-to-br from-secondary/5 to-accent/5 border border-secondary/20 hover:border-secondary/40 transition-all group/item">
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-secondary to-accent mt-1.5 group-hover/item:scale-125 transition-transform"></div>
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-1">WordPress Mastery</h5>
+                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Customization and optimization expertise</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors group/item">
-                  <div className="w-2 h-2 rounded-full bg-accent mt-2 group-hover/item:scale-150 transition-transform"></div>
-                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">Database design and management (SQL)</span>
+                
+                <div className="relative p-4 rounded-xl bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/20 hover:border-accent/40 transition-all group/item">
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-accent to-primary mt-1.5 group-hover/item:scale-125 transition-transform"></div>
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-1">Database Architecture</h5>
+                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">SQL design and management systems</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors group/item">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover/item:scale-150 transition-transform"></div>
-                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">Hosting solutions and technical support</span>
+                
+                <div className="relative p-4 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/20 hover:border-primary/40 transition-all group/item">
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-accent mt-1.5 group-hover/item:scale-125 transition-transform"></div>
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-1">Cloud Solutions</h5>
+                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Hosting and technical support services</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/5 transition-colors group/item col-span-full">
-                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover/item:scale-150 transition-transform"></div>
-                  <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">Digital marketing and SEO strategies</span>
+                
+                <div className="relative p-4 rounded-xl bg-gradient-to-br from-secondary/5 to-primary/5 border border-secondary/20 hover:border-secondary/40 transition-all group/item col-span-full">
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-secondary to-primary mt-1.5 group-hover/item:scale-125 transition-transform"></div>
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-1">Digital Marketing & SEO</h5>
+                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Strategic optimization and growth solutions</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -315,16 +349,11 @@ const AboutSection = () => {
 
         {/* Action Buttons */}
         <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="neon-button px-8 py-4 text-lg">
-              Get Updates
+          <ResumeDialog>
+            <Button variant="outline" className="glass-card border-primary/30 text-foreground hover:bg-primary/10 px-8 py-4 text-lg cursor-pointer transform-gpu hover:scale-105 transition-all duration-300">
+              View Resume
             </Button>
-            <ResumeDialog>
-              <Button variant="outline" className="glass-card border-primary/30 text-foreground hover:bg-primary/10 px-8 py-4 text-lg cursor-pointer transform-gpu hover:scale-105 transition-all duration-300">
-                View Resume
-              </Button>
-            </ResumeDialog>
-          </div>
+          </ResumeDialog>
         </div>
       </div>
     </section>

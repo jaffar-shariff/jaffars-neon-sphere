@@ -7,6 +7,8 @@ const CursorFollower = () => {
   const trailRefs = useRef<HTMLDivElement[]>([]);
   const [isHovering, setIsHovering] = useState(false);
   const [cursorText, setCursorText] = useState('');
+  const [isMoving, setIsMoving] = useState(false);
+  const moveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -20,6 +22,15 @@ const CursorFollower = () => {
     const moveCursor = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
+      // Set moving state
+      setIsMoving(true);
+      if (moveTimeoutRef.current) {
+        clearTimeout(moveTimeoutRef.current);
+      }
+      moveTimeoutRef.current = setTimeout(() => {
+        setIsMoving(false);
+      }, 150);
 
       // Main cursor follows immediately
       gsap.to(cursor, {
@@ -119,6 +130,9 @@ const CursorFollower = () => {
       document.removeEventListener('mouseenter', handleMouseEnter, true);
       document.removeEventListener('mouseleave', handleMouseLeave, true);
       clearInterval(interval);
+      if (moveTimeoutRef.current) {
+        clearTimeout(moveTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -144,7 +158,7 @@ const CursorFollower = () => {
         </div>
       ))}
 
-      {/* Main cursor with neon glow */}
+      {/* Main cursor with dynamic neon glow */}
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 w-4 h-4 pointer-events-none z-50"
@@ -158,9 +172,11 @@ const CursorFollower = () => {
             background: isHovering 
               ? 'radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--primary)/0.8) 50%, hsl(var(--primary)/0.3) 100%)'
               : 'hsl(var(--primary))',
-            boxShadow: isHovering 
-              ? '0 0 20px hsl(var(--primary)/0.8), 0 0 40px hsl(var(--primary)/0.6), 0 0 60px hsl(var(--primary)/0.4)'
-              : '0 0 10px hsl(var(--primary)/0.5)',
+            boxShadow: isMoving 
+              ? '0 0 30px hsl(var(--primary)/0.9), 0 0 60px hsl(var(--primary)/0.7), 0 0 90px hsl(var(--primary)/0.5)'
+              : isHovering 
+                ? '0 0 20px hsl(var(--primary)/0.8), 0 0 40px hsl(var(--primary)/0.6), 0 0 60px hsl(var(--primary)/0.4)'
+                : '0 0 10px hsl(var(--primary)/0.5)',
           }}
         />
       </div>
@@ -180,11 +196,12 @@ const CursorFollower = () => {
             <div className="absolute inset-0 border border-primary/10 rounded-full scale-200" />
           </div>
           
-          {/* Popup text */}
+          {/* Popup text with improved styling */}
           {cursorText && (
             <div className="absolute top-16 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-              <div className="glass-card px-4 py-2 text-sm text-primary font-bold animate-fade-blur-in border border-primary/30">
-                ✨ {cursorText}
+              <div className="glass-card px-6 py-3 text-base font-bold text-primary animate-fade-blur-in border border-primary/30 shadow-glow-primary">
+                <span className="text-lg">✨</span> 
+                <span className="ml-2 text-lg tracking-wide">{cursorText}</span>
               </div>
             </div>
           )}
