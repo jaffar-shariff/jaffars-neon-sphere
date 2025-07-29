@@ -129,12 +129,12 @@ const HeroSection = () => {
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button className="neon-button text-primary-foreground px-8 py-4 text-lg">
+          <Button className="neon-button text-primary-foreground px-8 py-4 text-lg cursor-pointer transform-gpu hover:scale-110 hover:rotate-1 transition-all duration-300">
             Hire Me
           </Button>
           <Button 
             variant="outline" 
-            className="glass-card border-primary/30 text-foreground hover:bg-primary/10 px-8 py-4 text-lg"
+            className="glass-card border-primary/30 text-foreground hover:bg-primary/10 px-8 py-4 text-lg cursor-pointer transform-gpu hover:scale-105 hover:-rotate-1 transition-all duration-300"
           >
             View Projects
           </Button>

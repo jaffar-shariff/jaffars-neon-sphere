@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Github, Code, Bot, Database, Globe, TrendingUp, Server } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AnimatedCard3D from './AnimatedCard3D';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -137,66 +138,69 @@ const ProjectsSection = () => {
           {projects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <div 
+              <AnimatedCard3D
                 key={project.title}
-                className="glass-card p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden"
+                className="cursor-pointer"
+                intensity={0.8}
               >
-                {/* Background gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity`} />
-                
-                {/* Icon */}
-                <div className="relative mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} p-3 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-full h-full text-white" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="relative space-y-4">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
+                <div className="glass-card p-6 h-full hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                  {/* Background gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity`} />
                   
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
+                  {/* Icon */}
+                  <div className="relative mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} p-3 group-hover:scale-110 transition-transform transform-gpu`}>
+                      <Icon className="w-full h-full text-white" />
+                    </div>
+                  </div>
 
-                  {/* Tech stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-3 py-1 text-xs rounded-full bg-muted/20 text-muted-foreground border border-primary/20"
+                  {/* Content */}
+                  <div className="relative space-y-4">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Tech stack */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span 
+                          key={tech}
+                          className="px-3 py-1 text-xs rounded-full bg-muted/20 text-muted-foreground border border-primary/20 hover:border-primary/40 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Action buttons */}
+                    <div className="flex gap-3 pt-4">
+                      <Button 
+                        size="sm"
+                        className="neon-button flex-1 text-xs cursor-pointer transform-gpu hover:scale-105"
+                        onClick={() => window.open(project.demoUrl, '_blank')}
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Demo
+                      </Button>
+                      <Button 
+                        size="sm"
+                        variant="outline"
+                        className="glass-card border-primary/30 text-foreground hover:bg-primary/10 cursor-pointer transform-gpu hover:scale-105"
+                        onClick={() => window.open(project.githubUrl, '_blank')}
+                      >
+                        <Github className="w-3 h-3" />
+                      </Button>
+                    </div>
                   </div>
 
-                  {/* Action buttons */}
-                  <div className="flex gap-3 pt-4">
-                    <Button 
-                      size="sm"
-                      className="neon-button flex-1 text-xs"
-                      onClick={() => window.open(project.demoUrl, '_blank')}
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      Demo
-                    </Button>
-                    <Button 
-                      size="sm"
-                      variant="outline"
-                      className="glass-card border-primary/30 text-foreground hover:bg-primary/10"
-                      onClick={() => window.open(project.githubUrl, '_blank')}
-                    >
-                      <Github className="w-3 h-3" />
-                    </Button>
-                  </div>
+                  {/* 3D Hover effect orb */}
+                  <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500 transform-gpu" />
                 </div>
-
-                {/* Hover effect orb */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500" />
-              </div>
+              </AnimatedCard3D>
             );
           })}
         </div>

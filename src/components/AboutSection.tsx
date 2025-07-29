@@ -12,6 +12,7 @@ import {
   Shield
 } from 'lucide-react';
 import { removeBackground, loadImage } from '@/utils/imageProcessing';
+import AnimatedCard3D from './AnimatedCard3D';
 
 const originalProfileImg = '/lovable-uploads/811e0d66-0217-4dfe-96af-8c91f382fb6f.png';
 
@@ -235,13 +236,16 @@ const AboutSection = () => {
             {skills.map((skill, index) => {
               const Icon = skill.icon;
               return (
-                <div 
+                <AnimatedCard3D
                   key={skill.name}
-                  className="glass-card p-6 hover:scale-105 transition-transform duration-300 group cursor-pointer"
+                  className="cursor-pointer"
+                  intensity={0.6}
                 >
-                  <Icon className={`w-8 h-8 mx-auto mb-3 ${skill.color} group-hover:scale-110 transition-transform`} />
-                  <p className="text-sm font-medium text-foreground">{skill.name}</p>
-                </div>
+                  <div className="glass-card p-6 hover:scale-105 transition-transform duration-300 group">
+                    <Icon className={`w-8 h-8 mx-auto mb-3 ${skill.color} group-hover:scale-110 transition-transform transform-gpu`} />
+                    <p className="text-sm font-medium text-foreground">{skill.name}</p>
+                  </div>
+                </AnimatedCard3D>
               );
             })}
           </div>
