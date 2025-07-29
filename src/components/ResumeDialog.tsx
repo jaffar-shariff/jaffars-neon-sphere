@@ -55,33 +55,33 @@ const ResumeDialog = ({ children }: ResumeDialogProps) => {
           </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4 p-6">
-          <p className="text-center text-muted-foreground">
-            Would you like to view or download Jaffar's resume?
+        <div className="space-y-6 p-6">
+          <p className="text-center text-muted-foreground text-lg">
+            Choose how you'd like to access the resume
           </p>
           
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <Button 
               onClick={handleView}
-              className="neon-button w-full py-3 flex items-center justify-center gap-2"
+              className="neon-button w-full py-4 flex items-center justify-center gap-3 text-lg font-semibold transform-gpu hover:scale-105"
             >
-              <Eye className="w-4 h-4" />
+              <Eye className="w-5 h-5" />
               View Resume
             </Button>
             
             <Button 
               onClick={handleDownload}
               variant="outline"
-              className="glass-card border-primary/30 text-foreground hover:bg-primary/10 w-full py-3 flex items-center justify-center gap-2"
+              className="glass-card border-primary/30 text-foreground hover:bg-primary/10 w-full py-4 flex items-center justify-center gap-3 text-lg font-semibold transform-gpu hover:scale-105"
             >
-              <Download className="w-4 h-4" />
+              <Download className="w-5 h-5" />
               Download Resume
             </Button>
           </div>
           
-          <div className="text-center">
-            <p className="text-xs text-muted-foreground">
-              Web & Hosting Specialist • 3+ Years Experience
+          <div className="text-center pt-4">
+            <p className="text-sm text-muted-foreground">
+              Web & Tech Specialist • Hosting Expert • AI Tools
             </p>
           </div>
         </div>

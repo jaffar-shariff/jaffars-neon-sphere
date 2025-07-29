@@ -164,27 +164,15 @@ const AboutSection = () => {
                   
                   <div className="text-center space-y-4">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      Professional Resume
+                      Resume
                     </h3>
                     
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Download my complete professional background with 3+ years in web hosting, AI tools, and technical support
+                      View or download my complete experience and skills
                     </p>
                     
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 py-4">
-                      <div className="text-center">
-                        <div className="text-lg font-bold text-primary">3+</div>
-                        <div className="text-xs text-muted-foreground">Years Exp</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-lg font-bold text-secondary">15+</div>
-                        <div className="text-xs text-muted-foreground">Skills</div>
-                      </div>
-                    </div>
-                    
                     <Button className="neon-button w-full py-3 text-base font-semibold">
-                      Get Resume
+                      View / Download
                     </Button>
                   </div>
 

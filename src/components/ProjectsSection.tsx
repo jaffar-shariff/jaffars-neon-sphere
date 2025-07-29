@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ExternalLink, Github, Code, Bot, Database, Globe, TrendingUp, Server } from 'lucide-react';
+import { ExternalLink, Code, Bot, Database, Globe, TrendingUp, Server } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedCard3D from './AnimatedCard3D';
 
@@ -180,19 +180,11 @@ const ProjectsSection = () => {
                     <div className="flex gap-3 pt-4">
                       <Button 
                         size="sm"
-                        className="neon-button flex-1 text-xs cursor-pointer transform-gpu hover:scale-105"
+                        className="neon-button w-full text-xs cursor-pointer transform-gpu hover:scale-105"
                         onClick={() => window.open(project.demoUrl, '_blank')}
                       >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Demo
-                      </Button>
-                      <Button 
-                        size="sm"
-                        variant="outline"
-                        className="glass-card border-primary/30 text-foreground hover:bg-primary/10 cursor-pointer transform-gpu hover:scale-105"
-                        onClick={() => window.open(project.githubUrl, '_blank')}
-                      >
-                        <Github className="w-3 h-3" />
+                        <ExternalLink className="w-3 h-3 mr-2" />
+                        View Demo
                       </Button>
                     </div>
                   </div>
