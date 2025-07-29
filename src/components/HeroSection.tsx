@@ -123,7 +123,7 @@ const HeroSection = () => {
       {/* Fullscreen Spline 3D Model Background */}
       <div className="absolute inset-0 w-full h-full">
         <iframe 
-          src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
+          src='https://my.spline.design/worldplanet-iJ7DfHUz8NAYbQw8DSITMqoi/' 
           frameBorder='0' 
           width='100%' 
           height='100%'
