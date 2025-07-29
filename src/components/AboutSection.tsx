@@ -202,68 +202,100 @@ const AboutSection = () => {
               I bring technical expertise with a user-centered approach.
             </p>
             
-            <div className="glass-card p-8 mt-8 group hover:scale-105 transition-all duration-300">
+            <div className="glass-card p-8 mt-8 group hover:scale-[1.02] transition-all duration-500">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-full bg-gradient-primary p-3 group-hover:rotate-180 transition-transform duration-500">
                   <Shield className="w-full h-full text-primary-foreground" />
                 </div>
                 <h4 className="text-2xl font-bold text-primary">Key Specializations</h4>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="relative p-4 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 transition-all group/item">
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-3 h-3 rounded-full bg-gradient-primary mt-1.5 group-hover/item:scale-125 transition-transform"></div>
-                    <div>
-                      <h5 className="font-semibold text-foreground mb-1">AI-Powered Development</h5>
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Website development and automation solutions</span>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <AnimatedCard3D className="cursor-pointer" intensity={1.2}>
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/30 hover:border-primary/60 transition-all duration-300 group/spec hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 transform-gpu">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Bot className="w-3 h-3 text-primary" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover/spec:opacity-5 transition-opacity rounded-2xl"></div>
+                    <h5 className="font-bold text-lg text-foreground mb-3 group-hover/spec:text-primary transition-colors">AI-Powered Development</h5>
+                    <p className="text-sm text-muted-foreground group-hover/spec:text-foreground transition-colors leading-relaxed">
+                      Building intelligent websites with automation and AI integration for enhanced user experiences
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <span className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full">AI</span>
+                      <span className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full">Automation</span>
                     </div>
                   </div>
-                </div>
-                
-                <div className="relative p-4 rounded-xl bg-gradient-to-br from-secondary/5 to-accent/5 border border-secondary/20 hover:border-secondary/40 transition-all group/item">
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-secondary to-accent mt-1.5 group-hover/item:scale-125 transition-transform"></div>
-                    <div>
-                      <h5 className="font-semibold text-foreground mb-1">WordPress Mastery</h5>
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Customization and optimization expertise</span>
+                </AnimatedCard3D>
+
+                <AnimatedCard3D className="cursor-pointer" intensity={1.2}>
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent border border-secondary/30 hover:border-secondary/60 transition-all duration-300 group/spec hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-secondary/20 transform-gpu">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Globe className="w-3 h-3 text-secondary" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-secondary to-accent opacity-0 group-hover/spec:opacity-5 transition-opacity rounded-2xl"></div>
+                    <h5 className="font-bold text-lg text-foreground mb-3 group-hover/spec:text-secondary transition-colors">WordPress Mastery</h5>
+                    <p className="text-sm text-muted-foreground group-hover/spec:text-foreground transition-colors leading-relaxed">
+                      Custom themes, plugins, and optimization for high-performance WordPress solutions
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <span className="px-2 py-1 text-xs bg-secondary/10 text-secondary rounded-full">CMS</span>
+                      <span className="px-2 py-1 text-xs bg-secondary/10 text-secondary rounded-full">Custom</span>
                     </div>
                   </div>
-                </div>
-                
-                <div className="relative p-4 rounded-xl bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/20 hover:border-accent/40 transition-all group/item">
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-accent to-primary mt-1.5 group-hover/item:scale-125 transition-transform"></div>
-                    <div>
-                      <h5 className="font-semibold text-foreground mb-1">Database Architecture</h5>
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">SQL design and management systems</span>
+                </AnimatedCard3D>
+
+                <AnimatedCard3D className="cursor-pointer" intensity={1.2}>
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/30 hover:border-accent/60 transition-all duration-300 group/spec hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20 transform-gpu">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Database className="w-3 h-3 text-accent" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover/spec:opacity-5 transition-opacity rounded-2xl"></div>
+                    <h5 className="font-bold text-lg text-foreground mb-3 group-hover/spec:text-accent transition-colors">Database Architecture</h5>
+                    <p className="text-sm text-muted-foreground group-hover/spec:text-foreground transition-colors leading-relaxed">
+                      Efficient SQL database design and management for scalable applications
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">SQL</span>
+                      <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">Design</span>
                     </div>
                   </div>
-                </div>
-                
-                <div className="relative p-4 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/20 hover:border-primary/40 transition-all group/item">
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-accent mt-1.5 group-hover/item:scale-125 transition-transform"></div>
-                    <div>
-                      <h5 className="font-semibold text-foreground mb-1">Cloud Solutions</h5>
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Hosting and technical support services</span>
+                </AnimatedCard3D>
+
+                <AnimatedCard3D className="cursor-pointer" intensity={1.2}>
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-accent/5 to-transparent border border-primary/30 hover:border-primary/60 transition-all duration-300 group/spec hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 transform-gpu">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <Server className="w-3 h-3 text-primary" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover/spec:opacity-5 transition-opacity rounded-2xl"></div>
+                    <h5 className="font-bold text-lg text-foreground mb-3 group-hover/spec:text-primary transition-colors">Cloud Solutions</h5>
+                    <p className="text-sm text-muted-foreground group-hover/spec:text-foreground transition-colors leading-relaxed">
+                      Reliable hosting infrastructure and comprehensive technical support services
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <span className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full">Cloud</span>
+                      <span className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full">Support</span>
                     </div>
                   </div>
-                </div>
-                
-                <div className="relative p-4 rounded-xl bg-gradient-to-br from-secondary/5 to-primary/5 border border-secondary/20 hover:border-secondary/40 transition-all group/item col-span-full">
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-secondary to-primary mt-1.5 group-hover/item:scale-125 transition-transform"></div>
-                    <div>
-                      <h5 className="font-semibold text-foreground mb-1">Digital Marketing & SEO</h5>
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">Strategic optimization and growth solutions</span>
+                </AnimatedCard3D>
+
+                <AnimatedCard3D className="cursor-pointer" intensity={1.2}>
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-secondary/10 via-primary/5 to-transparent border border-secondary/30 hover:border-secondary/60 transition-all duration-300 group/spec hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-secondary/20 transform-gpu md:col-span-2">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <TrendingUp className="w-3 h-3 text-secondary" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover/spec:opacity-5 transition-opacity rounded-2xl"></div>
+                    <h5 className="font-bold text-lg text-foreground mb-3 group-hover/spec:text-secondary transition-colors">Digital Marketing & SEO</h5>
+                    <p className="text-sm text-muted-foreground group-hover/spec:text-foreground transition-colors leading-relaxed">
+                      Strategic optimization and growth solutions to maximize online visibility and engagement
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <span className="px-2 py-1 text-xs bg-secondary/10 text-secondary rounded-full">SEO</span>
+                      <span className="px-2 py-1 text-xs bg-secondary/10 text-secondary rounded-full">Growth</span>
+                      <span className="px-2 py-1 text-xs bg-secondary/10 text-secondary rounded-full">Analytics</span>
                     </div>
                   </div>
-                </div>
+                </AnimatedCard3D>
               </div>
             </div>
           </div>

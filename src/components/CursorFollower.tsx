@@ -181,27 +181,42 @@ const CursorFollower = () => {
         />
       </div>
 
-      {/* Follower with text - spider web */}
+      {/* Follower with enhanced 3D popup text */}
       <div
         ref={followerRef}
-        className={`fixed top-0 left-0 pointer-events-none z-40 transition-opacity duration-200 ${
-          isHovering ? 'opacity-100' : 'opacity-70'
+        className={`fixed top-0 left-0 pointer-events-none z-40 transition-all duration-300 ${
+          isHovering ? 'opacity-100 scale-110' : 'opacity-70 scale-100'
         }`}
         style={{ transform: 'translate(-50%, -50%)' }}
       >
         <div className="relative">
-          {/* Web effect */}
-          <div className="w-12 h-12 border-2 border-primary/30 rounded-full backdrop-blur-sm animate-pulse">
+          {/* Enhanced web effect with 3D appearance */}
+          <div className={`w-12 h-12 border-2 border-primary/30 rounded-full backdrop-blur-sm transition-all duration-300 ${
+            isHovering ? 'animate-pulse scale-125 border-primary/60' : 'animate-pulse'
+          }`}>
             <div className="absolute inset-0 border border-primary/20 rounded-full scale-150" />
             <div className="absolute inset-0 border border-primary/10 rounded-full scale-200" />
+            {isHovering && (
+              <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping" />
+            )}
           </div>
           
-          {/* Popup text with improved styling */}
+          {/* Enhanced popup text with 3D effect */}
           {cursorText && (
             <div className="absolute top-16 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-              <div className="glass-card px-6 py-3 text-base font-bold text-primary animate-fade-blur-in border border-primary/30 shadow-glow-primary">
-                <span className="text-lg">✨</span> 
-                <span className="ml-2 text-lg tracking-wide">{cursorText}</span>
+              <div className="relative">
+                {/* 3D shadow effect */}
+                <div className="absolute inset-0 bg-background/80 rounded-xl blur-sm translate-x-1 translate-y-1"></div>
+                {/* Main popup */}
+                <div className="relative glass-card px-6 py-4 text-base font-bold text-primary animate-fade-blur-in border-2 border-primary/40 shadow-glow-primary hover:scale-105 transition-all duration-200 bg-background/90 backdrop-blur-md">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl animate-bounce">✨</span> 
+                    <span className="text-lg tracking-wide font-extrabold">{cursorText}</span>
+                  </div>
+                  {/* Glowing dots */}
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/60 rounded-full animate-ping"></div>
+                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-secondary/60 rounded-full animate-pulse"></div>
+                </div>
               </div>
             </div>
           )}
