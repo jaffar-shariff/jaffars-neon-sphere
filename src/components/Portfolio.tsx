@@ -6,6 +6,7 @@ import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
+import CursorFollower from './CursorFollower';
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,7 @@ const Portfolio = () => {
 
   return (
     <>
+      <CursorFollower />
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
       
       <div className={`min-h-screen bg-gradient-bg ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-1000`}>

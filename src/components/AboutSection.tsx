@@ -169,20 +169,9 @@ const AboutSection = () => {
     <section 
       id="about"
       ref={sectionRef}
-      className="relative min-h-screen py-20 px-4 overflow-hidden"
+      className="min-h-screen py-20 px-4"
     >
-      {/* Fullscreen Holoblobs Spline Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <iframe 
-          src='https://my.spline.design/holoblobs-DuiqBgLSF7PKIVAkmdVSANDN/' 
-          frameBorder='0' 
-          width='100%' 
-          height='100%'
-          className="w-full h-full"
-        />
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[0.5px]" />
-      </div>
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">
             About{' '}
